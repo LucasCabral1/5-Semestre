@@ -21,9 +21,9 @@ public class ExemplojdbcApplication {
 	@Bean
 	public CommandLineRunner init(@Autowired UsuarioRepository usuarioRepository){
 	 return args ->{
-	 	 usuarioRepository.Inserir(new Usuario(5,"Lucas Cabral","lucas@teste","123"));
-		 usuarioRepository.Inserir(new Usuario(0,"Teste","teste@teste","123"));
-	 	 List<Usuario> listaUsuarios = usuarioRepository.obterTodos();
+	 	  usuarioRepository.Inserir(new Usuario(5,"Lucas Cabral","lucas@teste","123"));
+		  usuarioRepository.Inserir(new Usuario(0,"Teste","teste@teste","123"));
+	 	  List<Usuario> listaUsuarios = usuarioRepository.obterTodos();
 		  Usuario userUpdate = new Usuario(1,"Teste","teste@teste","123");
 		  Usuario usuarioVerificar = new Usuario();
 		  usuarioVerificar.setEmail("lucas@teste");
@@ -32,8 +32,7 @@ public class ExemplojdbcApplication {
 
 		  usuarioRepository.Remover(userUpdate);
 		  usuarioRepository.Remover(0);
-		 Usuario usuarioAutenticado = usuarioRepository.autenticar(usuarioVerificar);
-		 listaUsuarios.add(usuarioAutenticado);
+		  Usuario usuarioAutenticado = usuarioRepository.autenticar(usuarioVerificar);
 		  listaUsuarios.forEach(System.out::println);
 
 		  System.out.print("Usuário autenticado \n"+usuarioAutenticado.toString());
